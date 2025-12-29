@@ -72,7 +72,7 @@ class MainWindow(QtWidgets.QMainWindow):
         text_layout = QtWidgets.QVBoxLayout()
         text_layout.setSpacing(16)
 
-        title = QtWidgets.QLabel("欢迎使用 ISMRMRD Viewer", card)
+        title = QtWidgets.QLabel("Welcome to ISMRMRD Viewer", card)
         title_font = QtGui.QFont()
         title_font.setPointSize(20)
         title_font.setBold(True)
@@ -80,8 +80,8 @@ class MainWindow(QtWidgets.QMainWindow):
         title.setStyleSheet("color: #1f2933;")
 
         description = QtWidgets.QLabel(
-            "这是一个用于浏览 ISMRMRD/MRD MRI 数据的跨平台工具，"
-            "支持查看头信息、图像、采集数据以及波形内容。",
+            "A cross-platform tool for exploring ISMRMRD/MRD MRI datasets, "
+            "including headers, reconstructed images, acquisitions, and waveforms.",
             card
         )
         description.setWordWrap(True)
@@ -92,9 +92,9 @@ class MainWindow(QtWidgets.QMainWindow):
         tips_layout.setContentsMargins(0, 0, 0, 0)
         tips_layout.setSpacing(8)
         tips = [
-            "点击下方按钮或使用菜单中的 File → Open 选择数据文件。",
-            "支持 .h5 / .mrd 文件，加载后左侧以树状结构展示内容。",
-            "右侧视图会根据所选数据自动切换到对应的查看器。"
+            "Use the button below or File → Open in the menu to choose a data file.",
+            "Both .h5 and .mrd files are supported; the tree on the left lists the contents.",
+            "Viewers on the right switch automatically based on the selected content."
         ]
         for tip in tips:
             row = QtWidgets.QHBoxLayout()
@@ -111,7 +111,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
         button_layout = QtWidgets.QHBoxLayout()
         button_layout.addStretch()
-        open_button = QtWidgets.QPushButton("选择数据文件", card)
+        open_button = QtWidgets.QPushButton("Choose Data File", card)
         open_button.setCursor(QtCore.Qt.CursorShape.PointingHandCursor)
         open_button.setMinimumWidth(180)
         open_button.setIcon(card.style().standardIcon(QtWidgets.QStyle.StandardPixmap.SP_DialogOpenButton))
