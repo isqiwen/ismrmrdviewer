@@ -1,11 +1,11 @@
 #!/usr/bin/env python
-from PySide2 import QtCore
-import ismrmrdviewer.ui as ui
-import sys
-import logging
 import argparse
+import logging
+import sys
 
-from PySide2 import QtWidgets
+from PySide6 import QtWidgets
+
+import ismrmrdviewer.ui as ui
 
 
 def main():
@@ -22,13 +22,12 @@ def main():
     app.setApplicationName("ismrmrdviewer")
 
     main = ui.MainWindow()
-    main.resize(800, 600)
-    main.show()
+    main.showMaximized()
 
     if args.file:
         main.open_file(args.file)
 
-    sys.exit(app.exec_())
+    sys.exit(app.exec())
 
 
 if __name__ == '__main__':

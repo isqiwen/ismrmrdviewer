@@ -2,6 +2,10 @@
 
 ISMRMRDVIEWER is a python package to view ISMRMRD/MRD (vendor agnostic MRI data format) raw data (including xml, data, waveforms and trajectories) and images.
 
+## Requirements
+- Python 3.13 or newer.
+- Latest PySide6 release (6.7 or newer) and the dependency versions defined in `requirements.txt`.
+
 # Installation
 
 

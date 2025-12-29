@@ -1,10 +1,13 @@
 import logging
 import xml.etree.ElementTree as ET
 
-from PySide2 import QtWidgets, QtCore
+from PySide6 import QtCore, QtWidgets
 
 
 class HeaderViewer(QtWidgets.QTreeWidget):
+
+    PARAMETER_COLUMN = 0
+    _parameter_width = None
 
     def __init__(self, container):
         super().__init__()
@@ -22,6 +25,9 @@ class HeaderViewer(QtWidgets.QTreeWidget):
         self.populate(item, root)
         self.setColumnCount(2)
         self.setHeaderLabels(("Parameter", "Value"))
+        self.header().setStretchLastSection(True)
+        self.header().sectionResized.connect(self._remember_parameter_width)
+        QtCore.QTimer.singleShot(0, self._apply_parameter_width)
 
     def populate(self, item, node):
         for child in node:
@@ -36,4 +42,12 @@ class HeaderViewer(QtWidgets.QTreeWidget):
                 self.populate(child_item, child)
                 child_item.setExpanded(True)
 
+    def _apply_parameter_width(self):
+        hint = max(300, self.sizeHintForColumn(self.PARAMETER_COLUMN))
+        stored = HeaderViewer._parameter_width or hint
+        self.header().resizeSection(self.PARAMETER_COLUMN, stored)
+        HeaderViewer._parameter_width = stored
 
+    def _remember_parameter_width(self, logical_index, _old, new):
+        if logical_index == self.PARAMETER_COLUMN:
+            HeaderViewer._parameter_width = new

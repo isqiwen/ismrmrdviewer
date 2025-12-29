@@ -1,14 +1,14 @@
 import logging
 
-from PySide2 import QtWidgets, QtCore, QtGui
-from PySide2.QtCore import Qt
-
-import numpy as np
 import matplotlib as mpl
-import matplotlib.pyplot as plt
 import matplotlib.figure as figure
-from matplotlib.backends.backend_qt5agg import FigureCanvas
-from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
+import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg as FigureCanvas
+from matplotlib.backends.backend_qtagg import NavigationToolbar2QT as NavigationToolbar
+from PySide6 import QtCore, QtGui, QtWidgets
+from PySide6.QtCore import Qt
+
 from .utils import CachedDataset
 
 

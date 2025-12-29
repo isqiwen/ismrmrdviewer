@@ -1,12 +1,11 @@
 import logging
-import numpy
 import pdb
-import matplotlib.pyplot as pyplot
+
 import matplotlib.animation as animation
-
-from PySide2 import QtCore, QtGui, QtWidgets as QTW
-
-from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+import matplotlib.pyplot as pyplot
+import numpy
+from PySide6 import QtCore, QtWidgets as QTW
+from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 
 DIMS = ('Instance', 'Channel', 'Slice')
@@ -85,7 +84,7 @@ class ImageViewer(QTW.QWidget):
 
         self.ax = self.fig.add_subplot(111)
         self.canvas = FigureCanvas(self.fig)
-        self.canvas.setAttribute(QtCore.Qt.WA_TransparentForMouseEvents)
+        self.canvas.setAttribute(QtCore.Qt.WidgetAttribute.WA_TransparentForMouseEvents)
         self.canvas.setSizePolicy(QTW.QSizePolicy.Expanding,
                                   QTW.QSizePolicy.Expanding)
         layout.addWidget(self.canvas)
@@ -267,4 +266,3 @@ class ImageViewer(QTW.QWidget):
         self.timer.interval = 100
         self.timer.timeout.connect(increment)
         self.timer.start()
-

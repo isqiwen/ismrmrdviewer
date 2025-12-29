@@ -1,10 +1,10 @@
 
 import ismrmrd
+from PySide6 import QtWidgets
+from PySide6.QtCore import Qt
+from PySide6.QtGui import QCursor, QGuiApplication
 
-from PySide2 import QtWidgets
-from PySide2.QtCore import Qt
-from PySide2.QtGui import QGuiApplication, QCursor
-from ismrmrdviewer.viewer import HeaderViewer, ImageViewer, AcquisitionViewer, WaveformViewer
+from ismrmrdviewer.viewer import AcquisitionViewer, HeaderViewer, ImageViewer, WaveformViewer
 
 
 class FileWidget(QtWidgets.QSplitter):
